@@ -1,0 +1,6 @@
+{
+	"name": "planahead",
+	"version": 2,
+    "alias": "planahead.app",
+    "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+}
