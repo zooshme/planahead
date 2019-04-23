@@ -1,5 +1,11 @@
+import { Container, Layout, Day, Row } from '../components'
+
 export default () => (
-	<div>
-		<h1>Plan Ahead</h1>
-	</div>
+	<Layout>
+		<Container>
+			<Row>
+				{['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map( day => <Day day={day} />)}
+			</Row>
+		</Container>
+	</Layout>
 )
