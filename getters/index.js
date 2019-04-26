@@ -1,10 +1,10 @@
-export function groupByDate(list) {
+export function groupByDate(list = []) {
     return list.reduce((acc, { dt_txt, ...rest  }) => {
-        const { getFullYear: year, getMonth: month, getDate: date } = new Date(dt_txt)
+        const date = new Date(dt_txt)
         
         return { 
             ...acc,
-            [`${year()}-${month() + 1}-${date()}`]: rest
+            [`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`]: rest
         }
     }, {})
 }

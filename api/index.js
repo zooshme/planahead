@@ -1,8 +1,8 @@
-import { get } from 'axios'
+import axios from 'axios'
 
 export async function fetchWeather({ city, country }) {
     try {
-        const response = await get('api.openweathermap.org/data/2.5/forecast', {
+        const response = await axios.get('https://api.openweathermap.org/data/2.5/forecast', {
             params: {
                 q: `${city},${country}`,
                 mode: 'json',
@@ -10,8 +10,9 @@ export async function fetchWeather({ city, country }) {
             }
         })
         const { data } = response
-        return data
-    } catch(err) {
-        return { err }
+        console.log('data from api', data)
+        return { data, error: null }
+    } catch(error) {
+        return { error }
     }
 }

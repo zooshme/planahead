@@ -2,6 +2,7 @@ import { vars, rem } from '~/shared'
 import Slot from './Slot'
 
 const Day = ({ className, date, value: { main, weather, clouds, wind, rain } }) => {
+    console.log(date)
     const day = new Date(date)
     const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day.getDay()]
     return (
