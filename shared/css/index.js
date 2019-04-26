@@ -1,2 +1,2 @@
-export { default as variables } from './variables'
+export { default as vars } from './variables'
 export * from './mixins'

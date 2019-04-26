@@ -1,4 +1,4 @@
-import { variables, rem } from '~/shared'
+import { vars, rem } from '~/shared'
 
 const Logo = () => (
 	<span className="logo">
@@ -6,7 +6,7 @@ const Logo = () => (
 		
 		<style jsx>{`
 			.logo {
-				font-family: ${variables.headingFont};
+				font-family: ${vars.headingFont};
 				font-weight: 600;
 				text-transform: uppercase;
 				font-size: ${rem(26)};

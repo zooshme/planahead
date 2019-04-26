@@ -1,18 +1,20 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import React from 'react'
+import App,  { Container } from 'next/app'
+import Head from 'next/head'
 
-class MyDocument extends Document {
+import { vars } from '~/shared'
+
+class MyApp extends App {
 	render() {
+        const { Component, pageProps } = this.props
 		return (
-			<Html>
-				<Head>
-					<title>Plan Ahead</title>
-					<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/611456/6413412/css/fonts.css" />
-				</Head>
-				<body>
-					<Main />
-					<NextScript />
-				</body>
-				<style jsx global>{`
+            <Container>
+                <Head>
+                    <title>Plan Ahead</title>
+                    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/611456/6413412/css/fonts.css" />
+                </Head>
+                <Component {...pageProps} />
+                <style jsx global>{`
 					html, body, div, span, applet, object, iframe,
 					h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 					a, abbr, acronym, address, big, cite, code,
@@ -57,12 +59,13 @@ class MyDocument extends Document {
 					}
 
 					body {
-						
+                        font-family: ${vars.bodyFont};
+                        background-color: ${vars.paperColor};
 					}
 				`}</style>
-			</Html>
+            </Container>
 		)
 	}
 }
 
-export default MyDocument
+export default MyApp
