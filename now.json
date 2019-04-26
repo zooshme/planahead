@@ -2,5 +2,11 @@
 	"name": "planahead",
 	"version": 2,
     "alias": "planahead.app",
-    "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+    "builds": [{ 
+        "src": "next.config.js", 
+        "use": "@now/next",
+        "env": {
+            "OPEN_WEATHER_MAP_TOKEN": "@open-weather-map-token"
+        }
+    }]
 }
