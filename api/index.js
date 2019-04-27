@@ -10,7 +10,6 @@ export async function fetchWeather({ city, country }) {
             }
         })
         const { data } = response
-        console.log('data from api', data)
         return { data, error: null }
     } catch(error) {
         return { error }

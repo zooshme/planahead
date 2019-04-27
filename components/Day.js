@@ -1,11 +1,13 @@
 import { vars, rem } from '~/shared'
 import Slot from './Slot'
 import WeatherInfo from './WeatherInfo'
+import { daysOfWeek } from '~/fixtures'
 
 const Day = ({ className, date, value }) => {
     console.log(date)
     const day = new Date(date)
-    const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day.getDay()]
+    const dayOfWeek = daysOfWeek[day.getDay()]
+    
     return (
         <div className={`day ${className}`}>
             <h3 className="title">{dayOfWeek}</h3>

@@ -17,14 +17,18 @@ const WeatherInfo = ({
     }], 
     clouds: { all: cloudsAll }, 
     wind: { speed, deg }, 
-    rain
+    rain,
+    snow
 }) => {
         return (
             <div>
+                <img src={`http://openweathermap.org/img/w/${icon}.png`} />
                 {temp}  
                 <span>{weatherMain} - {description}</span>
                 <span>{speed} {deg}</span>
-                <span>{rain && rain['3h']}</span>
+                <span>{cloudsAll}</span>
+                {rain && (<span>{rain['3h']}</span>)}
+                {snow && (<span>{snow['3h']}</span>)}
             </div>
         )
     }

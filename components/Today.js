@@ -1,8 +1,14 @@
 import { rem } from '~/shared'
+import WeatherInfo from './WeatherInfo'
+import Container from './Container'
 
-const Today = ({ children }) => (
+const Today = ({ children, value }) => (
     <header className="today">
         {children}
+
+        <Container>
+            <WeatherInfo {...value} />
+        </Container>
 
         <style jsx>{`
             .today {

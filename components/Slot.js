@@ -1,4 +1,4 @@
-import { rem } from '~/shared/css'
+import { rem, vars } from '~/shared/css'
 
 const Slot = ({ slot, children }) => (
     <div className="slot">
@@ -12,8 +12,7 @@ const Slot = ({ slot, children }) => (
             }
 
             .slot__inner {
-                background-color: grey;
-                color: white;
+                background-color: ${vars.paperColor};
                 padding: ${rem(10)};
                 border-radius: 4px;
             }    

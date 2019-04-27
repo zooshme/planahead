@@ -23,7 +23,7 @@ const IndexPage = ({ data = {}, error }) => {
         console.log(data, data.list, days)
         return (
             <Layout>
-                <Today />
+                <Today value={data.list[0]} />
                 <Container>
                     <Calendar>
                         <Row>
@@ -42,7 +42,6 @@ const IndexPage = ({ data = {}, error }) => {
 
 IndexPage.getInitialProps = async () => {
     const response = await fetchWeather({ city: 'Glasgow', country: 'uk' })
-    console.log('response from initialProps', response)
     return { error: response.error, data: response.data }
 }
 
