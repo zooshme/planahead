@@ -1,15 +1,20 @@
 import { vars, rem } from '~/shared'
 import Slot from './Slot'
+import WeatherInfo from './WeatherInfo'
 
-const Day = ({ className, date, value: { main, weather, clouds, wind, rain } }) => {
+const Day = ({ className, date, value }) => {
     console.log(date)
     const day = new Date(date)
     const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][day.getDay()]
     return (
         <div className={`day ${className}`}>
             <h3 className="title">{dayOfWeek}</h3>
-            {[0, 3, 6, 9, 12, 3, 6, 9]
-                .map((slot, i) => <Slot slot={slot} key={i} weather={weather} />)}
+            {value
+                .map((weatherInfo, i) => (
+                    <Slot key={i}>
+                        <WeatherInfo {...weatherInfo} />
+                    </Slot>
+                ))}
     
             <style jsx>{`
                 .day {

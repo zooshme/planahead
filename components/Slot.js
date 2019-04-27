@@ -1,10 +1,10 @@
 import { rem } from '~/shared/css'
 
-const Slot = ({ slot, weather }) => (
+const Slot = ({ slot, children }) => (
     <div className="slot">
         <div className="slot__inner">
             {slot}
-            {weather[0].description}
+            {children}
         </div>
         <style jsx>{`
             .slot {
