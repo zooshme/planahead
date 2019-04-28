@@ -2,12 +2,17 @@ import Logo from './Logo'
 import Container from './Container'
 
 const Layout = ({ children }) => (
-	<div>
+	<div className="layout">
 		<Container>
 			<Logo />
-
 		</Container>
-		{children}
+        {children}
+        
+        <style jsx>{`
+            .layout {
+                
+            }    
+        `}</style>
 	</div>
 )
 

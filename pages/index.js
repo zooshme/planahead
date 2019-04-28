@@ -15,7 +15,9 @@ const IndexPage = ({ data = {}, error }) => {
     if (error) {
         return (
             <Layout>
-                <div>Error</div>
+                <Container>
+                    <div>Error</div>
+                </Container>
             </Layout>
         )
     } else {
