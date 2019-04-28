@@ -16,8 +16,8 @@
         "OPEN_WEATHER_MAP_TOKEN": "@open-weather-map-token"
     },
     "routes": [{
-        "src": "/next/*", "dest": "/"
+        "src": "/api", "dest": "/express"
     }, {
-        "src": "/express", "dest": "/api"
+        "src": "/", "dest": "/next"
     }]
 }
