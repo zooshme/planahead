@@ -1,8 +1,14 @@
+import { StatelessComponent } from 'react'
+
 import { rem } from '~/shared'
 import WeatherInfo from './WeatherInfo'
 import Container from './Container'
 
-const Today = ({ children, value }) => (
+interface IProps {
+    value: any;
+}
+
+const Today: StatelessComponent<IProps> = ({ children, value }) => (
     <header className="today">
         {children}
 

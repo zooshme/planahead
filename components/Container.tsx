@@ -1,4 +1,6 @@
-const Container = ({ className, children }) => (
+import { StatelessComponent } from 'react'
+
+const Container: StatelessComponent<React.HtmlHTMLAttributes<HTMLDivElement>> = ({ className, children }) => (
 	<div className={`container ${className}`}>
 		{children}
 

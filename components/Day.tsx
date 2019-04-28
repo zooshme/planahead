@@ -1,9 +1,16 @@
+import { StatelessComponent, HTMLAttributes } from 'react'
+
 import { vars, rem } from '~/shared'
 import Slot from './Slot'
 import WeatherInfo from './WeatherInfo'
 import { daysOfWeek } from '~/fixtures'
 
-const Day = ({ className, date, value }) => {
+interface IProps {
+    date: any;
+    value: any;
+}
+
+const Day: StatelessComponent<IProps & HTMLAttributes<HTMLDivElement>> = ({ className, date, value }) => {
     console.log(date)
     const day = new Date(date)
     const dayOfWeek = daysOfWeek[day.getDay()]
@@ -12,7 +19,7 @@ const Day = ({ className, date, value }) => {
         <div className={`day ${className}`}>
             <h3 className="title">{dayOfWeek}</h3>
             {value
-                .map((weatherInfo, i) => (
+                .map((weatherInfo: any, i: number) => (
                     <Slot key={i}>
                         <WeatherInfo {...weatherInfo} />
                     </Slot>

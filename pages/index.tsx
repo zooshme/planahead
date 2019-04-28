@@ -1,9 +1,11 @@
-import { useEffect, useReducer } from 'react'
+import { StatelessComponent, useEffect, useReducer } from 'react'
 import axios from 'axios'
 
+import { IStatelessPage } from '~/interfaces'
 import { Container, Layout, Day, Row, Today, Calendar } from '~/components'
 import { groupByDate } from '~/getters'
 import { fetchWeather } from '~/api'
+import reducer from '~/reducers'
 
 const initialState = {
     city: 'Glasgow',
@@ -11,7 +13,14 @@ const initialState = {
     weather: { list: [] }
 }
 
-const IndexPage = ({ data = { list: [] }, error }) => {
+interface IProps {
+    data?: any;
+    error?: any;
+}
+
+const Page: IStatelessPage<IProps> = ({ data = { list: [] }, error }) => {
+    const [state, dispatch] = useReducer(reducer, initialState)
+
     if (error) {
         return (
             <Layout>
@@ -39,9 +48,9 @@ const IndexPage = ({ data = { list: [] }, error }) => {
 
 } 
 
-IndexPage.getInitialProps = async () => {
+Page.getInitialProps = async () => {
     const response = await fetchWeather({ city: 'Glasgow', country: 'uk' })
     return { error: response.error, data: response.data }
 }
 
-export default IndexPage
+export default Page
