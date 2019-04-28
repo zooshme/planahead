@@ -2,7 +2,8 @@ import {
     UPDATE_CITY, 
     UPDATE_COUNTRY, 
     UPDATE_WEATHER, 
-    LOADING
+    UPDATE_LOADING,
+    UPDATE_ERROR
 } from '~/actions'
 
 export default (state, { type, payload }) => {
@@ -22,10 +23,16 @@ export default (state, { type, payload }) => {
         case UPDATE_WEATHER:
             return {
                 ...state,
-                weather: payload.weather
+                data: payload.data
+            }
+
+        case UPDATE_ERROR: 
+            return {
+                ...state,
+                error: payload.error
             }
             
-        case LOADING:
+        case UPDATE_LOADING:
             return {
                 ...state,
                 loading: payload.loading

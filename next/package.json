@@ -18,7 +18,8 @@
     "html-typings": "^1.1.2",
     "next": "^8.1.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "rxjs-hooks": "^0.4.3"
   },
   "devDependencies": {
     "jest": "^24.7.1",

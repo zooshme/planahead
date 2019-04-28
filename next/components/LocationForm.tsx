@@ -8,7 +8,7 @@ const LocationForm: StatelessComponent<{}> = () => (
 			<option value="uk">United Kingdom</option>
 			<option value="us">United States of America</option>
 		</select>
-		<input type="submit" value="Get weather" />
+		<input type="submit" value="Get weather info" />
 	</form>
 )
 
