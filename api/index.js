@@ -4,7 +4,7 @@ const cors = require('cors')
 
 app.use(cors())
 
-app.get('/api/forecast/5', ({ query: { city, country } }, res) => {
+app.get('/api', ({ query: { city, country } }, res) => {
 	if (city && country) {
 		axios.get('https://api.openweathermap.org/data/2.5/forecast', {
 			params: {

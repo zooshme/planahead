@@ -9,14 +9,14 @@
         "src": "next/next.config.js", 
         "use": "@now/next"
     }, {
-        "src": "express/index.js",
+        "src": "api/index.js",
         "use": "@now/node-server"
     }],
     "env": {
         "OPEN_WEATHER_MAP_TOKEN": "@open-weather-map-token"
     },
     "routes": [{
-        "src": "/api/<route>", "dest": "/express/$route"
+        "src": "/api", "dest": "/api"
     }, {
         "src": "/", "dest": "/next"
     }]
