@@ -11,16 +11,15 @@ const initialState = {
     weather: { list: [] }
 }
 
-const IndexPage = ({ data = {}, error }) => {
+const IndexPage = ({ data = { list: [] }, error }) => {
     if (error) {
         return (
             <Layout>
-                <div>Error</div>
+                <div>{error.message}</div>
             </Layout>
         )
     } else {
         const days = groupByDate(data.list)
-        console.log(data, data.list, days)
         return (
             <Layout>
                 <Today value={data.list[0]} />

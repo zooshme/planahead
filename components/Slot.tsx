@@ -1,6 +1,8 @@
-import { rem, vars } from '~/shared/css'
+import { StatelessComponent } from 'react'
 
-const Slot = ({ slot, children }) => (
+import { rem, vars } from '~/shared'
+
+const Slot: StatelessComponent = ({ slot, children }) => (
     <div className="slot">
         <div className="slot__inner">
             {slot}
