@@ -8,16 +8,8 @@
     "builds": [{ 
         "src": "next/next.config.js", 
         "use": "@now/next"
-    }, {
-        "src": "api/index.js",
-        "use": "@now/node-server"
     }],
     "env": {
         "OPEN_WEATHER_MAP_TOKEN": "@open-weather-map-token"
-    },
-    "routes": [{
-        "src": "/api", "dest": "/api"
-    }, {
-        "src": "/*", "dest": "/next"
-    }]
+    }
 }
