@@ -14,20 +14,20 @@ interface IMain {
 }
 
 interface ISnow {
-    ['3h']:string;
+    ['3h']:number;
 }
 
 interface IRain {
-    ['3h']:string;
+    ['3h']:number;
 }
 
 interface IClouds {
-    all:string;
+    all:number;
 }
 
 interface IWind {
-    speed:string;
-    deg:string;
+    speed:number;
+    deg:number;
 }
 
 interface IWeather {
@@ -37,7 +37,7 @@ interface IWeather {
     icon:string;
 }
 
-interface IProps {
+export interface IWeatherInfo {
     main:IMain;
     weather:IWeather[];
     clouds:IClouds;
@@ -47,7 +47,7 @@ interface IProps {
 }
 
 
-const WeatherInfo:React.StatelessComponent<IProps> = ({ 
+const WeatherInfo:React.StatelessComponent<IWeatherInfo> = ({ 
     main: { 
         temp, 
         temp_min, 
@@ -71,14 +71,14 @@ const WeatherInfo:React.StatelessComponent<IProps> = ({
 }) => {
         return (
             <div className="weather-info">
-                <img className="icon" src={`http://openweathermap.org/img/w/${icon}.png`} />
-                <div className="description">{description}</div>
-                <div className="humidity">Humidity: {humidity}%</div>
-                <div className="temperature">Temperature: {Math.round(convertKelvinToCelsius(temp))}{'\u00b0'}C</div>  
-                <div className="wind">Wind: {speed} {deg}</div>
-                <div className="clouds">Clouds: {cloudsAll}%</div>
-                {rain && (<div className="rain">Rain Volume: {rain['3h']}mm/3h</div>)}
-                {snow && (<div className="snow">Snow Volume: {snow['3h']}</div>)}
+                <img data-id="icon" className="icon" src={`http://openweathermap.org/img/w/${icon}.png`} />
+                <div id="description" data-id="description" className="description">{description}</div>
+                <div data-id="humidity" className="humidity">Humidity: {humidity}%</div>
+                <div data-id="temperature" className="temperature">Temperature: {Math.round(convertKelvinToCelsius(temp))}{'\u00b0'}C</div>  
+                <div data-id="wind" className="wind">Wind: {speed} {deg}</div>
+                <div data-id="clouds" className="clouds">Clouds: {cloudsAll}%</div>
+                {rain && (<div data-id="rain" className="rain">Rain Volume: {rain['3h']}mm/3h</div>)}
+                {snow && (<div data-id="snow" className="snow">Snow Volume: {snow['3h']}</div>)}
 
                 <style jsx>{`
                     .weather-info {
