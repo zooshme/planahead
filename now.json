@@ -6,18 +6,10 @@
         "planahead.app"
     ],
     "builds": [{ 
-        "src": "next/next.config.js", 
+        "src": "next.config.js", 
         "use": "@now/next"
-    }, {
-        "src": "express/index.js",
-        "use": "@now/node-server"
     }],
     "env": {
         "OPEN_WEATHER_MAP_TOKEN": "@open-weather-map-token"
-    },
-    "routes": [{
-        "src": "/next/*", "dest": "/"
-    }, {
-        "src": "/express", "dest": "/api"
-    }]
+    }
 }
