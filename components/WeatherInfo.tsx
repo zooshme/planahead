@@ -1,14 +1,16 @@
 import React from 'react'
+import { convertKelvinToCelsius } from '~/helpers'
+import { rem, vars } from '~/shared'
 
 interface IMain {
-    temp:string;
-    temp_min:string;
-    temp_max:string;
-    pressure:string;
-    sea_level:string;
-    grnd_level:string;
-    humidity:string;
-    temp_kf:string;
+    temp:number;
+    temp_min:number;
+    temp_max:number;
+    pressure:number;
+    sea_level:number;
+    grnd_level:number;
+    humidity:number;
+    temp_kf:number;
 }
 
 interface ISnow {
@@ -68,14 +70,29 @@ const WeatherInfo:React.StatelessComponent<IProps> = ({
     snow
 }) => {
         return (
-            <div>
-                <img src={`http://openweathermap.org/img/w/${icon}.png`} />
-                {temp}  
-                <span>{weatherMain} - {description}</span>
-                <span>{speed} {deg}</span>
-                <span>{cloudsAll}</span>
-                {rain && (<span>{rain['3h']}</span>)}
-                {snow && (<span>{snow['3h']}</span>)}
+            <div className="weather-info">
+                <img className="icon" src={`http://openweathermap.org/img/w/${icon}.png`} />
+                <div className="description">{description}</div>
+                <div className="humidity">Humidity: {humidity}%</div>
+                <div className="temperature">Temperature: {Math.round(convertKelvinToCelsius(temp))}{'\u00b0'}C</div>  
+                <div className="wind">Wind: {speed} {deg}</div>
+                <div className="clouds">Clouds: {cloudsAll}%</div>
+                {rain && (<div className="rain">Rain Volume: {rain['3h']}mm/3h</div>)}
+                {snow && (<div className="snow">Snow Volume: {snow['3h']}</div>)}
+
+                <style jsx>{`
+                    .weather-info {
+                        height: ${rem(200)};
+                    }
+                    .description {
+                        font-size: ${rem(26)};
+                        font-family: ${vars.headingFont};
+                        font-weight: 600;
+                        line-height: ${rem(30)};
+                        margin-bottom: ${rem(10)};
+                        text-transform: capitalize;
+                    }    
+                `}</style>
             </div>
         )
     }
