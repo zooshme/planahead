@@ -3,10 +3,12 @@ import {
     UPDATE_COUNTRY, 
     UPDATE_WEATHER, 
     UPDATE_LOADING,
-    UPDATE_ERROR
+    UPDATE_ERROR,
+    TOGGLE_LOCATION_FORM
 } from '~/actions'
 
 export default (state, { type, payload }) => {
+    console.log(state, type, payload )
     switch(type) {
         case UPDATE_CITY: 
             return {
@@ -36,6 +38,12 @@ export default (state, { type, payload }) => {
             return {
                 ...state,
                 loading: payload.loading
+            }
+
+        case TOGGLE_LOCATION_FORM:
+            return {
+                ...state,
+                isLocationFormVisible: payload.isLocationFormVisible
             }
             
         default:

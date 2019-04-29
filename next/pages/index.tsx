@@ -1,4 +1,4 @@
-import { StatelessComponent, useEffect, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 import { AppContextProvider } from '~/contexts'
 import { Container, Layout, Day, Row, Today, Calendar, ErrorMessage, Loading } from '~/components'
@@ -6,17 +6,30 @@ import { groupByDate } from '~/getters'
 import { fetchWeather } from '~/api'
 import { updateWeather, updateError, updateLoading } from '~/actions'
 import reducer from '~/reducers'
+import { IStatelessPage } from '~/interfaces'
 
 const initialState = {
     city: 'Glasgow',
     country: 'uk',
     data: { list: [] },
     error: null,
-    loading: false
+    loading: false,
+    isOverlayVisible: false
 }
 
-const Page: StatelessComponent<{}> = () => {
-    const [{ city, country, data, error, loading }, dispatch] = useReducer(reducer, initialState)
+interface IProps {
+    environment?: string;
+}
+
+const Page: IStatelessPage<IProps> = () => {
+    const [{ 
+        city, 
+        country, 
+        data, 
+        error, 
+        loading, 
+        isLocationFormVisible 
+    }, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
         dispatch(updateLoading(true))
@@ -35,7 +48,14 @@ const Page: StatelessComponent<{}> = () => {
 
 
     return (
-        <AppContextProvider>
+        <AppContextProvider
+            value={{
+                dispatch,
+                city,
+                country,
+                isLocationFormVisible
+            }}
+        >
             <Layout>
                 {loading 
                 ? <Container><Loading /></Container>
@@ -48,7 +68,6 @@ const Page: StatelessComponent<{}> = () => {
                 : (
                     <div>
                         {data.list[0] && <Today value={data.list[0]} />}
-                        <Container>
                             <Calendar>
                                 <Row>
                                     {Object.entries(days)
@@ -57,12 +76,18 @@ const Page: StatelessComponent<{}> = () => {
                                     )}
                                 </Row>
                             </Calendar>
-                        </Container>
                     </div>
                 )}
             </Layout>
         </AppContextProvider>
     )
+}
+
+Page.getInitialProps = () => {
+    return new Promise((resolve) => {
+        const { NODE_ENV } = process.env
+        resolve({ environment: NODE_ENV })
+    })
 }
 
 export default Page

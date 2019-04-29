@@ -2,7 +2,7 @@ import { StatelessComponent } from 'react'
 
 import { rem } from '~/shared'
 import WeatherInfo from './WeatherInfo'
-import Container from './Container'
+import Centred from './Centred'
 
 interface IProps {
     value: any;
@@ -12,9 +12,9 @@ const Today: StatelessComponent<IProps> = ({ children, value }) => (
     <header className="today">
         {children}
 
-        <Container>
+        <Centred horizontal vertical>
             <WeatherInfo {...value} />
-        </Container>
+        </Centred>
 
         <style jsx>{`
             .today {

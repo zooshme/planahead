@@ -1,5 +1,5 @@
-import { SFC } from 'react'
+import { FC } from 'react'
 
-export interface IStatelessPage<P = {}> extends SFC<P> {
+export interface IStatelessPage<P = {}> extends FC<P> {
 	getInitialProps?: (ctx:any) => Promise<P>;
 }

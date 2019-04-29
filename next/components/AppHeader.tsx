@@ -4,7 +4,7 @@ import css from 'styled-jsx/css'
 import { rem } from '~/shared'
 import Container from './Container'
 import Logo from './Logo'
-import LocationForm from './LocationForm'
+import Location from './Location'
 
 const AppHeader: React.StatelessComponent<{}> = () => {
 	const {className, styles} = css.resolve`
@@ -20,7 +20,7 @@ const AppHeader: React.StatelessComponent<{}> = () => {
 			<Container className={className}>
 				<Logo />
 
-				<LocationForm />
+				<Location />
 			</Container>
 			{styles}
 			<style jsx>{`

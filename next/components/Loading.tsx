@@ -1,7 +1,10 @@
-import { StatelessComponent } from 'react'
+import { FC } from 'react'
+import Container from './Container'
 
-const Loading: StatelessComponent<{}> = () => (
-	<div className="loading">Loading...</div>
+const Loading: FC<{}> = () => (
+    <Container>
+        <div className="loading">Loading...</div>
+    </Container>
 )
 
 export default Loading
