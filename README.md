@@ -9,6 +9,7 @@ To run it locally:
 * `cd` into the cloned directory
 * `npm install` dependencies
 * `npm run dev` to run a development server
+* `npm test` to run tests
 
 To do:
 * [] improve weather display
