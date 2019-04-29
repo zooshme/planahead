@@ -1,12 +1,14 @@
+import { FC } from 'react'
+
 import { vars } from '~/shared'
 
-const Calendar = ({ children }) => (
+const Calendar: FC<{}> = ({ children }) => (
     <div className="calendar">
         {children}
 
         <style jsx>{`
             .calendar {
-                background-color: white;
+                background-color: ${vars.white};
             }    
         `}</style>
     </div>

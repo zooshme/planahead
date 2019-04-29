@@ -19,9 +19,12 @@
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "refract-rxjs": "^4.2.1",
     "rxjs-hooks": "^0.4.3"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "chai": "^4.2.0",
     "cypress": "^3.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
