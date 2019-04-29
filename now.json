@@ -6,7 +6,7 @@
         "planahead.app"
     ],
     "builds": [{ 
-        "src": "next/next.config.js", 
+        "src": "next.config.js", 
         "use": "@now/next"
     }],
     "env": {

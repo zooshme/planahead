@@ -1,10 +1,7 @@
 import axios from 'axios'
 
-export function fetchWeather({ city, country, environment }) {
-    const url = environment === 'production' 
-        ? '//api'
-        : 'http://localhost:4000/api'
-    return axios.get(url, {
+export function fetchWeather({ city, country }) {
+    return axios.get('https://api.planahead.app', {
         params: { city, country }
     })
 }
