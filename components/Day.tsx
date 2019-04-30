@@ -4,6 +4,7 @@ import { vars, rem } from '~/shared'
 import Slot from './Slot'
 import WeatherInfo from './WeatherInfo'
 import { daysOfWeek } from '~/fixtures'
+import { IWeatherDetails } from '~/interfaces'
 
 interface IProps {
     date: any;
@@ -19,9 +20,9 @@ const Day: StatelessComponent<IProps & HTMLAttributes<HTMLDivElement>> = ({ clas
         <div className={`day ${className}`}>
             <h3 className="title">{dayOfWeek}</h3>
             {value
-                .map((weatherInfo: any, i: number) => (
+                .map((details: IWeatherDetails, i: number) => (
                     <Slot key={i}>
-                        <WeatherInfo {...weatherInfo} />
+                        <WeatherInfo {...details.weather[0]} temp={details.main.temp} />
                     </Slot>
                 ))}
     
