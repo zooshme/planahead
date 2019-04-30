@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ChangeEvent } from 'react'
 
 export interface IOption {
     value: string;
@@ -18,11 +18,11 @@ const Select: FC<ISelect> = ({
     id, 
     name, 
     options, 
-    value: selectedValue, 
+    value, 
     placeholder,
     onChange
 }) => {
-    const onChangeHandler = (e) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         onChange(e.target.value)
     }
@@ -32,13 +32,13 @@ const Select: FC<ISelect> = ({
             id={id}
             name={name}
             onChange={onChangeHandler}
+            value={value}
         >
             {placeholder && <option>{placeholder}</option>}
             {options.map(({ value, label }: IOption, i: number) => (
                 <option 
                     key={i} 
                     value={value}
-                    selected={value === selectedValue}
                 >{label}</option>
             ))}
         </select>

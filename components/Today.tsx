@@ -1,7 +1,7 @@
 import { StatelessComponent } from 'react'
 
 import { rem } from '~/shared'
-import WeatherInfo from './WeatherInfo'
+import WeatherDetails from './WeatherDetails'
 import Centred from './Centred'
 
 interface IProps {
@@ -13,14 +13,13 @@ const Today: StatelessComponent<IProps> = ({ children, value }) => (
         {children}
 
         <Centred horizontal vertical>
-            <WeatherInfo {...value} />
+            <WeatherDetails {...value} />
         </Centred>
 
         <style jsx>{`
             .today {
                 height: 300px;
                 background: linear-gradient(green, blue);
-                margin-bottom: ${rem(20)};
             }    
         `}</style>
     </header>
